@@ -386,11 +386,11 @@ var View = /*@__PURE__*/(function (Component) {
     };
 
     // Adding google analytics
-    // window.dataLayer = window.dataLayer || [];
-    // function gtag(){dataLayer.push(arguments);}
-    // gtag('js', new Date());
-
-    // gtag('config', 'UA-144729452-1');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'UA-30199022-1');
   };
 
   View.prototype.render = function render () {

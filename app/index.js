@@ -297,11 +297,11 @@ class View extends Component{
     }
 
     // Adding google analytics
-    // window.dataLayer = window.dataLayer || [];
-    // function gtag(){dataLayer.push(arguments);}
-    // gtag('js', new Date());
-
-    // gtag('config', 'UA-144729452-1');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'UA-30199022-1');
   }
 
   render () {
