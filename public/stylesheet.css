@@ -1,0 +1,384 @@
+:root {
+  --bg-dark: rgba(40, 40, 40, 1);
+}
+
+* {
+  box-sizing: border-box;
+  touch-action: manipulation;
+  overscroll-behavior: none;
+}
+
+html {
+  font-weight: 400;
+  letter-spacing: -.05px;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+a {
+  text-decoration: none;
+}
+
+html, body {
+  height: 100%;
+  min-height: 100%;
+  max-height: 100%;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont,
+    “Segoe UI”, “Roboto”, “Oxygen”,
+    “Ubuntu”, “Cantarell”, “Fira Sans”,
+    “Droid Sans”, “Helvetica Neue”, sans-serif;
+}
+
+img, svg, b {
+  pointer-events: none;
+}
+
+
+
+@media (max-width: 800px) {
+  img {
+    width: 15px;
+  }
+}
+
+small {
+  font-size: 12px;
+}
+
+.bold { font-weight: bold;}
+
+small, button, a, input, select {
+  color: rgba(0, 0, 0, .9);
+}
+
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0);
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.timer-button > svg {
+  width: 24px; 
+  height: 24px;
+}
+
+.timer-button {
+  padding: 20px;
+}
+
+.timerview * {
+  color: white;
+}
+
+button:not(.no-hover):hover {
+  background: rgba(0, 0, 0, .1);
+}
+
+@supports (-webkit-overflow-scrolling: touch) {
+  button:not(.no-hover):hover {
+    background: rgba(0, 0, 0, 0);
+  }
+
+  button:not(.no-hover):active { /* prevent annoying sticky hover effect on ios */
+    background: rgba(0, 0, 0, 0);
+  }
+}
+
+canvas, .frame-img {
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -webkit-crisp-edges;
+  image-rendering: pixelated;
+  user-select: none;
+}
+
+button > svg {
+  width: 14px;
+  height: 14px;
+}
+
+.select {
+  display: flex;
+  align-items: center;
+  position: relative;
+  background: white;
+  border: 0px;
+}
+
+
+.select select {
+  cursor: pointer;
+}
+.select:after {
+  position: absolute;
+  right: 0px;
+  content: ' ';
+  background-image: url('data:image/svg+xml;utf8,<svg width="15" height="15" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sort-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="svg-inline--fa fa-sort-down fa-w-10 fa-3x"><path fill="currentColor" d="M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41z" class=""></path></svg>');;
+  background-repeat: no-repeat;
+  height: 20px;
+  width: 20px;
+  margin: 0px 5px;
+  pointer-events: none;
+  color: rgba(0, 0, 0, .9);
+}
+
+input, select {  
+  min-height: 38px;
+  max-height: 38px;
+  outline: none;
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  padding: 0.375rem 0.75rem;
+  font-size: 16px;
+  line-height: 24px;
+  background-color: white;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  appearance: none;
+  -webkit-appearance: none;
+  border-radius: 0px;
+  font-family: -apple-system, BlinkMacSystemFont,
+          “Segoe UI”, “Roboto”, “Oxygen”,
+          “Ubuntu”, “Cantarell”, “Fira Sans”,
+          “Droid Sans”, “Helvetica Neue”, sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background-color: rgba(25,25,25);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(70,70,70);
+}
+
+.clickable { cursor: pointer; }
+
+.fl-column { display: flex; flex-direction: column;}
+.fl-col-reverse { display: flex; flex-direction: column-reverse; justify-content: flex-end;}
+.fl { display: flex; }
+.fl-wrap { flex-wrap: wrap; }
+.fl-center { justify-content: center; align-items: center;}
+.fl-center-x { justify-content: center;}
+.fl-center-y { align-items: center;}
+.fl-justify-around { justify-content: space-around; }
+.fl-justify-between { justify-content: space-between; }
+.fl-justify-center { justify-content: center; }
+.fl-justify-end { justify-content: flex-end; }
+.fl-items-start { align-items: flex-start; }
+
+.fl-1 { flex: 1; }
+.fl-2 { flex: 2; }
+.fl-3 { flex: 3; }
+.fl-4 { flex: 4; }
+.fl-5 { flex: 5; }
+.fl-6 { flex: 6; }
+
+.w-full { width: 100%; }
+.h-full { height: 100%; }
+.h-40 { height: 40px; }
+.w-40 { width: 40px; }
+.h-35 { height: 35px; }
+.w-35 { width: 35px; }
+.w-30 { min-width: 30px; max-width: 30px;}
+.h-30 { min-height: 30px; max-height: 30px; }
+.h-25 { height: 25px; }
+.h-15 { height: 15px; }
+.w-15 { width: 15px; }
+.h-10 { height: 10px; }
+.w-10 { width: 10px; }
+
+.p-h-5 { padding-left: 5px; padding-right: 5px; }
+.p-h-10 {padding-left: 10px;padding-right: 10px;}
+.p-h-15 { padding-left: 15px; padding-right: 15px; }
+.p-h-20 { padding-left: 20px; padding-right: 20px; }
+.p-v-5 { padding-top: 5px; padding-bottom: 5px; }
+.p-v-10 { padding-top: 10px; padding-bottom: 10px; }
+.p-v-15 { padding-top: 15px; padding-bottom: 15px; }
+.p-v-20 { padding-top: 20px; padding-bottom: 20px; }
+.p-5 { padding: 5px; }
+.p-10 { padding: 10px; }
+.p-0 { padding: 0px; }
+
+.m-5 { margin: 5px; }
+.m-0 { margin: 0px; }
+
+.b-r-0 { border-radius: 0px;  }
+.b-r-l-4 { border-top-left-radius: 4px; border-bottom-left-radius: 4px; }
+.b-r-r-4 { border-top-right-radius: 4px; border-bottom-right-radius: 4px; }
+.b-r-4 { border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; }
+.b-r-full { border-radius: 100%; }
+
+.txt-center { text-align: center; }
+.txt-right { text-align: right; }
+.txt-left { text-align: left; }
+
+.rel { position: relative; }
+.abs { position: absolute; }
+.top { top: 0px; }
+.left { left: 0px; }
+.bottom { bottom: 0px; }
+.right { right: 0px; }
+
+.overflow { overflow: scroll; overflow: overlay; }
+.overflow-none { overflow: hidden; }
+
+.no-ptr { pointer-events: none; }
+
+.z-0 { z-index: 0; }
+.z-1 { z-index: 1; }
+.z-2 { z-index: 2; }
+.z-3 { z-index: 3; }
+.z-4 { z-index: 4; }
+.z-5 { z-index: 5; }
+
+input[type='range'] {
+  height: 20px;
+  cursor: pointer;
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent;
+}
+
+input[type='range']:focus {
+  border: 0;
+  outline: none;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 1px solid rgba(35, 35, 35, 1);
+  height: 12px;
+  width: 12px;
+  border-radius: 100%;
+  background: #ffffff;
+  cursor: pointer;
+  /*margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+}
+
+/* All the same stuff for Firefox */
+input[type='range']::-moz-range-thumb {
+  border: 1px solid rgba(35, 35, 35, 1);
+  height: 12px;
+  width: 12px;
+  border-radius: 100%;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+@media (max-width: 800px) {
+  input[type='range']::-moz-range-thumb {
+    height: 20px;
+    width: 20px;
+  }
+  input[type='range']::-webkit-slider-thumb {
+    height: 20px;
+    width: 20px;
+  }
+  input[type='range'] {
+    height: 35px;
+  }
+}
+
+.hide-scroll {
+  overflow-y: scroll;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+}
+
+.hide-scroll::-webkit-scrollbar { /* WebKit */
+  width: 0;
+  height: 0;
+}
+
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.txt-96 {
+  font-size: 96px;
+}
+
+small, p, h6, h5, h4, h3, h2, h1, button {
+  color: rgba(0, 0, 0, .85);
+}
+
+h1 {
+  font-size: 48px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+h2 {
+  font-size: 40px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+h3 {
+  font-size: 32px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+h4 {
+  font-size: 24px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+h5 {
+  font-size: 20px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+h6 {
+  font-size: 18px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+p {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
+}
+
+small {
+  font-size: 12px;
+}
+
+.accent {
+  color: #fff;
+  background-color: #1db190;
+  border-color: #1db190;
+}
+
+
+
